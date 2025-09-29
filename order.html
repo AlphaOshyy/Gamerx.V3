@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GamerX — Order Review</title>
+
+  <!-- your global styles -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- page-specific styles -->
+  <link rel="stylesheet" href="order.css"/>
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="GamerX Logo"></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-item cart-icon">
+          <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="cart-count">0</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ORDER REVIEW -->
+  <main class="order-container">
+    <!-- Left -->
+    <section class="order-left">
+      <!-- Address -->
+      <div class="order-card">
+        <h3>Shipping Address</h3>
+        <p><strong id="shipName">—</strong> · <span id="shipPhone">—</span></p>
+        <p id="shipAddress1">—</p>
+        <p id="shipAddress2">—</p>
+      </div>
+
+      <!-- Payment method (preview) -->
+      <div class="order-card">
+        <h3>Payment Method</h3>
+        <div class="payment-method">
+          <label id="payMethod">Card details will be entered on the next step.</label>
+        </div>
+      </div>
+
+      <!-- Shipping method -->
+      <div class="order-card">
+        <h3>Shipping Method</h3>
+        <div class="shipping-method">
+          <div>Method: <strong id="shipMethodName">Standard Shipping</strong></div>
+          <div>Fee: <strong id="shipFee">Rs.0</strong></div>
+          <div>Delivery: <span id="shipEta">—</span></div>
+        </div>
+      </div>
+
+      <!-- Items -->
+      <div class="order-card">
+        <h3>Items</h3>
+        <div id="orderItems" class="items-list"></div>
+      </div>
+    </section>
+
+    <!-- Right -->
+    <aside class="order-right">
+      <div class="order-card">
+        <h3>Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span id="orderSubtotal">Rs.0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="orderShipping">Rs.0</span></div>
+        <div class="summary-row total"><span>Total</span><span id="orderTotal">Rs.0</span></div>
+        <button id="goToPaymentBtn" class="btn primary">Place Order</button>
+        <a href="cart.html" class="btn link-btn" style="margin-top:10px;">← Back to Cart</a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Newsletter (kept consistent with your site) -->
+  <section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+      <h4>Sign Up for Newsletters</h4>
+      <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+    </div>
+    <div class="form">
+      <input type="text" placeholder="Your email address">
+      <button class="normal">Sign Up</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section-p1">
+    <div class="col">
+      <img src="img/logo.png" alt="GamerX" class="logo">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong> 123 Gamer St, Gaming City</p>
+      <p><strong>Phone:</strong> +94 75 316 2711</p>
+      <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+    </div>
+
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="login.html">Sign In</a>
+      <a href="cart.html">View Cart</a>
+      <a href="wishlist.html">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+    </div>
+
+    <div class="install">
+      <h4>Install App</h4>
+      <p>From App Store or Google Play</p>
+      <div class="row">
+        <img src="img/pay/app.jpg" alt="App Store">
+        <img src="img/pay/play.jpg" alt="Google Play">
+      </div>
+      <p>Secured Payment Gateways</p>
+      <img src="img/pay/pay.png" alt="Payment Methods">
+    </div>
+
+    <div class="copyright">
+      <p>© 2024, GamerX - NOVA</p>
+    </div>
+  </footer>
+
+  <!-- Your global JS (from earlier message) -->
+  <script src="script.js"></script>
+
+  <!-- Tiny booster to call the page init (safe if included in other pages) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof initOrderReviewPage === "function") initOrderReviewPage();
+    });
+  </script>
+</body>
+</html>

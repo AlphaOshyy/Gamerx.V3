@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment — GamerX</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="pay-dark">
+  <!-- Header -->
+  <section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="GamerX Logo"/></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="cart-icon">
+          <a class="active" href="cart.html" aria-label="View Cart">
+            <i class="fa fa-cart-arrow-down"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main>
+    <section id="hero2" aria-label="Payment">
+      <div class="pay-wrapper">
+        <div class="pay-grid">
+          <!-- Order Summary -->
+          <aside class="panel" aria-label="Order Summary">
+            <div class="summary-card">
+              <div class="summary-header">
+                <h3>Your Order</h3>
+                <span class="summary-badge"><i class="fas fa-shield-alt"></i> Secured</span>
+              </div>
+              <div id="payCartItems"><!-- JS injects items --></div>
+              <div class="pay-total" aria-live="polite">
+                <span>Total Amount</span>
+                <span id="payCartTotal">Rs.0</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Payment -->
+          <section class="panel payment" aria-label="Payment Form">
+            <div class="pay-card">
+              <h2>Pay with Card</h2>
+              <p class="subtle">Complete your purchase securely.</p>
+
+              <div class="card-logos" aria-hidden="true" title="Accepted cards">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-discover"></i>
+              </div>
+
+              <form id="payForm" class="form" novalidate>
+                <div class="space">
+                  <label class="label" for="cc-name">Card holder</label>
+                  <div class="icon-relative">
+                    <input id="cc-name" type="text" class="input" placeholder="Your Name" required/>
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  </div>
+                  <small class="err" id="err-name"></small>
+                </div>
+
+                <div class="space">
+                  <label class="label" for="cc-number">Card Number</label>
+                  <div class="icon-relative">
+                    <input id="cc-number" type="text" class="input" placeholder="0000 0000 0000 0000" maxlength="19" required/>
+                    <i class="far fa-credit-card" aria-hidden="true"></i>
+                  </div>
+                  <small class="err" id="err-number"></small>
+                </div>
+
+                <div class="card-grp space">
+                  <div class="card-item">
+                    <label class="label" for="cc-exp">Expiry Date</label>
+                    <div class="icon-relative">
+                      <input id="cc-exp" type="text" class="input" placeholder="MM/YY" maxlength="5" required/>
+                      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    </div>
+                    <small class="err" id="err-exp"></small>
+                  </div>
+                  <div class="card-item">
+                    <label class="label" for="cc-cvc">CVC</label>
+                    <div class="icon-relative">
+                      <input id="cc-cvc" type="text" class="input" placeholder="000" maxlength="4" required/>
+                      <i class="fas fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <small class="err" id="err-cvc"></small>
+                  </div>
+                </div>
+
+                <button type="button" class="btn" id="payNow">Pay Now</button>
+                
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (your existing footer content) -->
+  <footer class="section-p1">
+    <!-- ... -->
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

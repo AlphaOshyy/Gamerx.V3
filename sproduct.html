@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamerX - Product</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+<body>
+  <!-- Header -->
+  <section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="GamerX Logo" /></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-item cart-icon">
+          <a href="cart.html" aria-label="View Cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb section-p1" aria-label="Breadcrumb">
+    <a href="index.html">Home</a> /
+    <a href="shop.html">Shop</a> /
+    <span id="prodBreadcrumb">Product Name</span>
+  </nav>
+
+  <!-- Single Product -->
+  <section id="sproduct" class="section-p1">
+    <div class="sproduct-container">
+      <!-- Images -->
+      <div class="single-pro-image">
+        <div class="main-img">
+          <img id="MainImg" src="img/Products/p1.jpg" alt="Product">
+        </div>
+        <div id="thumbnails" class="img-thumbnails"><!-- JS injects thumbs --></div>
+      </div>
+
+      <!-- Details -->
+      <div class="sproduct-details">
+        <span id="prodBrand">Brand</span>
+        <h2 id="prodName">Product Name</h2>
+
+        <div class="star" aria-hidden="true">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+
+        <h4 id="prodPrice">Rs.0</h4>
+        <p id="prodDesc">Product description goes here.</p>
+
+        <div class="product-options">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value="1" min="1" />
+        </div>
+
+        <div class="cart-btn-wrap">
+          <button class="cart-btn" type="button" title="Add to cart">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="product-tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="desc">Description</button>
+            <button class="tab-btn" data-tab="specs">Specifications</button>
+            <button class="tab-btn" data-tab="reviews">Reviews</button>
+          </div>
+
+          <div class="tab-track" id="tabTrack">
+            <div class="tab-content active" id="desc">
+              <p id="prodDescTab">Product description will load here...</p>
+            </div>
+            <div class="tab-content" id="specs">
+              <ul id="prodSpecs"></ul>
+            </div>
+            <div class="tab-content" id="reviews">
+              <p>No reviews yet. Be the first to review!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="share">
+          <span>Share:</span>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section id="related-products" class="section-p1">
+    <h3>Related Products</h3>
+    <div class="pro-container scrollable" id="relatedProducts"></div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+      <h4>Sign Up for Newsletters</h4>
+      <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+    </div>
+    <div class="form">
+      <input type="text" placeholder="Your email address" />
+      <button class="normal">Sign Up</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section-p1">
+    <div class="col">
+      <img src="img/logo.png" alt="GamerX">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong> 123 Gamer St, Gaming City</p>
+      <p><strong>Phone:</strong> +94 75 316 2711</p>
+      <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="install">
+      <h4>Install App</h4>
+      <p>From App Store or Google Play</p>
+      <div class="row">
+        <img src="img/pay/app.jpg" alt="App Store">
+        <img src="img/pay/play.jpg" alt="Google Play">
+      </div>
+      <p>Secured Payment Gateways</p>
+      <img src="img/pay/pay.png" alt="Payment Methods">
+    </div>
+    <div class="copyright">
+      <p>© 2024, GamerX - NOVA</p>
+    </div>
+  </footer>
+
+  <!-- Your site JS (products, cart, etc.) -->
+  <script src="script.js"></script>
+
+  <!-- Safe, minimal tabs script (uses data-tab) -->
+  <script>
+    (function () {
+      const btns = document.querySelectorAll('.tab-btn');
+      const contents = document.querySelectorAll('.tab-content');
+
+      // underline bar
+      const underline = document.createElement('div');
+      underline.className = 'tab-underline';
+      const btnWrap = document.querySelector('.tab-buttons');
+      if (btnWrap) btnWrap.appendChild(underline);
+
+      function show(tabId, btn) {
+        contents.forEach(c => c.classList.remove('active'));
+        btns.forEach(b => b.classList.remove('active'));
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+        btn.classList.add('active');
+
+        // move underline
+        if (btnWrap) {
+          underline.style.width = btn.offsetWidth + 'px';
+          underline.style.left = btn.offsetLeft + 'px';
+        }
+      }
+
+      btns.forEach(b => {
+        b.addEventListener('click', () => show(b.dataset.tab, b));
+      });
+
+      // init
+      const active = document.querySelector('.tab-btn.active') || btns[0];
+      if (active) show(active.dataset.tab, active);
+    })();
+  </script>
+</body>
+</html>

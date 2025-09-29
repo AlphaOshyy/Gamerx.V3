@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GamerX — Login / Signup</title>
+
+  <!-- Your site styles (header/nav, etc.) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons for cart (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+  <!-- Auth page styles (scoped) -->
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="auth-page">
+  <!-- Site Header -->
+  <section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="GamerX Logo"/></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="cart-icon">
+          <a href="cart.html" aria-label="View Cart"><i class="fa fa-cart-arrow-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Auth content -->
+  <main class="auth">
+    <div class="auth-container">
+      <!-- LOGIN -->
+      <div class="form-box login active">
+        <h2>GAMEX LOGIN</h2>
+
+        <!-- novalidate removes the browser’s grey tooltip -->
+        <form id="authLogin" novalidate>
+          <div class="input-box">
+            <input type="email" name="email" required />
+            <label>Email</label>
+          </div>
+
+          <div class="input-box">
+            <input type="password" name="password" required />
+            <label>Password</label>
+          </div>
+
+          <button type="submit" class="auth-btn">Lock &amp; Load</button>
+
+          <div class="switch">
+            <p>New Recruit? <a href="#" data-target="signup">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIGNUP -->
+      <div class="form-box signup">
+        <h2>GAMEX SIGN UP</h2>
+
+        <form action="userDBConnect.php" method="POST" id="authSignup" novalidate>
+          <div class="input-box">
+            <input type="text" name="callsign" required />
+            <label>Callsign</label>
+          </div>
+
+          <div class="input-box">
+            <input type="email" name="email" required />
+            <label>Email</label>
+          </div>
+
+          <div class="input-box">
+            <input type="password" name="password" required />
+            <label>Password</label>
+          </div>
+
+          <button type="submit" class="auth-btn">Join the Fight</button>
+
+          <div class="switch">
+            <p>Veteran? <a href="#" data-target="login">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal JS just to switch forms + demo submit -->
+  <script>
+    // Toggle between login / signup
+    function showForm(which) {
+      document.querySelector('.form-box.login').classList.toggle('active', which === 'login');
+      document.querySelector('.form-box.signup').classList.toggle('active', which === 'signup');
+    }
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-target]');
+      if (!link) return;
+      e.preventDefault();
+      showForm(link.dataset.target);
+    });
+
+    // Demo submit handlers (replace with real backend later)
+    document.getElementById('authLogin')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.currentTarget);
+      if (!fd.get('email') || !fd.get('password')) return alert('Enter email & password');
+      alert('Logged in!'); window.location.href = 'index.html';
+    });
+    document.getElementById('authSignup')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.currentTarget);
+      if (!fd.get('callsign') || !fd.get('email') || !fd.get('password')) return alert('Fill all fields');
+      alert('Account created!'); window.location.href = 'index.html';
+    });
+
+    // Default view
+    showForm('login');
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Successful - GamerX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .thanks-wrap{
+      min-height: 70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:12px;
+      text-align:center;
+      padding:40px 20px;
+    }
+    .thanks-card{
+      max-width:640px;
+      width:100%;
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      padding:28px;
+    }
+    .thanks-card h2{ color:#2a2a2a; margin-bottom:6px;}
+    .thanks-card p{ color:#666; margin:0 0 12px 0;}
+    .order-summary{ margin-top:16px; text-align:left;}
+    .order-summary h4{ margin:8px 0; color:#333;}
+    .order-summary .row{ display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;}
+    .order-summary .row:last-child{ border-bottom:none; }
+    .actions{ display:flex; gap:10px; margin-top:18px; justify-content:center;}
+    .actions a{ text-decoration:none;}
+  </style>
+</head>
+<body>
+  <section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="GamerX Logo"></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-item cart-icon">
+          <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="cart-count">0</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="thanks-wrap section-p1">
+    <div class="thanks-card">
+      <h2>🎉 Payment Successful!</h2>
+      <p>Your order has been placed. A confirmation email will be sent to you shortly.</p>
+      <div class="order-summary">
+        <h4>Order Summary</h4>
+        <div id="orderItems"></div>
+        <div class="row"><strong>Total Paid</strong><span id="orderTotal">Rs.0</span></div>
+      </div>
+      <div class="actions">
+        <a href="shop.html"><button class="normal">Continue Shopping</button></a>
+        <a href="index.html"><button class="white">Go Home</button></a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="section-p1">
+    <div class="copyright">
+      <p>© 2024, GamerX - NOVA</p>
+    </div>
+  </footer>
+
+  <script>
+    // Render last order
+    (function(){
+      const data = JSON.parse(localStorage.getItem("lastOrder") || "{}");
+      const itemsEl = document.getElementById("orderItems");
+      const totalEl = document.getElementById("orderTotal");
+      totalEl.textContent = data.total || "Rs.0";
+
+      if (Array.isArray(data.items) && data.items.length){
+        const wrap = document.createElement("div");
+        data.items.forEach(it => {
+          const row = document.createElement("div");
+          row.className = "row";
+          row.innerHTML = `<span>Item #${it.id} x ${it.qty}</span>`;
+          wrap.appendChild(row);
+        });
+        itemsEl.appendChild(wrap);
+      } else {
+        itemsEl.innerHTML = '<div class="row"><em>No items found (order cache may be cleared).</em></div>';
+      }
+
+      // Reset navbar cart count and cleanup
+      const cartCount = document.querySelector(".cart-count");
+      if (cartCount) cartCount.textContent = "0";
+      localStorage.removeItem("checkoutForm");
+    })();
+  </script>
+</body>
+</html>

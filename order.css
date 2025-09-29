@@ -1,0 +1,93 @@
+/* Body wallpaper (optional) */
+body.order-bg {
+  background: #f5f5f5 url("img/R1.jpg") no-repeat center/cover fixed;
+}
+
+/* Layout */
+.order-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:30px;
+  padding:40px 80px;
+  flex-wrap:wrap;
+}
+
+.order-left{ flex:2; display:flex; flex-direction:column; gap:20px; }
+.order-right{ flex:1; }
+
+.order-card{
+  background:#fff;
+  border-radius:12px;
+  padding:22px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.order-card h3{ margin:0 0 12px; color:#222; font-weight:700; }
+
+/* Address / payment / shipping blocks */
+.payment-method,
+.shipping-method{
+  background:#f8f9fb;
+  border:1px solid #eef1f5;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+#orderItems .item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+#orderItems .item:last-child{ border-bottom:none; }
+#orderItems .thumb{
+  width:80px; height:80px; object-fit:cover; border-radius:8px; border:1px solid #e5e7eb;
+}
+#orderItems .meta{
+  display:flex; flex-direction:column; gap:4px; flex:1; min-width:0;
+}
+#orderItems .name{ font-weight:600; color:#222; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#orderItems .row{ display:flex; gap:8px; font-size:14px; color:#555; }
+#orderItems .price{ font-weight:700; color:#B03737; }
+
+/* Summary */
+.summary-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:6px 0;
+  font-size:15px;
+}
+.summary-row.total{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #eee;
+  font-weight:800;
+  font-size:18px;
+  color:#111;
+}
+
+/* Buttons */
+.btn{
+  display:block; width:100%;
+  border:none; border-radius:10px;
+  padding:12px 14px; cursor:pointer;
+  font-weight:700; font-size:15px;
+}
+.btn.primary{
+  background:linear-gradient(135deg, #B03737, #e05252);
+  color:#fff; box-shadow:0 6px 16px rgba(176,55,55,.35);
+}
+.btn.primary:hover{ transform:translateY(-1px); box-shadow:0 8px 18px rgba(176,55,55,.45); }
+.btn.link-btn{
+  background:transparent; color:#B03737; border:1px solid #e9d1d1;
+  text-align:center;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .order-container{ padding:30px 20px; }
+}

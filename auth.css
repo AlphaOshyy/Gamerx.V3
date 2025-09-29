@@ -1,0 +1,140 @@
+/* ===== Page scope ===== */
+.auth-page {
+  min-height: 100vh;
+  background: #0a1c33;            /* dark navy */
+  display: flex;
+  flex-direction: column;
+  /* Neon cursor on this page only */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2 L12 6 M12 18 L12 22 M2 12 L6 12 M18 12 L22 12" stroke="cyan" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="cyan"/></svg>') 12 12, auto;
+}
+
+/* keeps card clear of the sticky header */
+.auth {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+}
+
+/* ===== Card ===== */
+.auth-container {
+  width: 420px;
+  max-width: 92vw;
+  padding: 28px 26px;
+  border-radius: 14px;
+  background: rgba(5, 8, 12, 0.85);
+  border: 1px solid rgba(0,255,255,0.18);
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(0, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+  position: relative;
+}
+
+/* soft outer glow edge */
+.auth-container::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 18px;
+  background: radial-gradient(120% 120% at 10% 0%,
+              rgba(0,255,255,.18), transparent 40%),
+              radial-gradient(120% 120% at 90% 100%,
+              rgba(255,0,255,.12), transparent 40%);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+/* ===== Forms ===== */
+.form-box { display: none; color: #f4f8ff; text-align: center; }
+.form-box.active { display: block; }
+
+.form-box h2 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+  color: #00f0ff;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0,240,255,0.4);
+}
+
+/* Inputs with floating labels */
+.input-box { position: relative; margin: 16px 0 18px; }
+
+.input-box input {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,240,255,0.55);
+  background: rgba(7, 14, 22, 0.7);
+  color: #e9f6ff;
+  font-size: 0.98rem;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+}
+
+.input-box input:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 0 3px rgba(255,0,255,0.15);
+  background: rgba(7, 14, 22, 0.9);
+}
+
+.input-box label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 0 6px;
+  font-size: .9rem;
+  color: #00f0ff;
+  pointer-events: none;
+  background: #0a1c33;
+  border-radius: 4px;
+  transform-origin: left center;
+  transition: all .22s ease;
+}
+
+/* Float on focus or when filled */
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: -10px;
+  left: 10px;
+  font-size: .72rem;
+  color: #ff00ff;
+}
+
+/* ===== Buttons ===== */
+/* Ensure our neon button wins over any global .btn */
+.auth .btn,
+.auth-btn {
+  width: 100%;
+  padding: center 14px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: #00f0ff;
+  color: #001018;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .25s, color .25s, transform .1s;
+}
+
+.auth .btn:hover,
+.auth-btn:hover {
+  background: #ff00ff;
+  color: #fff;
+}
+.auth .btn:active,
+.auth-btn:active { transform: translateY(1px); }
+
+/* Links under the button */
+.switch { margin-top: 14px; color: #b9eaff; }
+.switch a { color: #ff00ff; text-decoration: none; font-weight: 800; }
+.switch a:hover { color: #ffffff; }
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .auth-container { padding: 24px 20px; }
+  .form-box h2 { font-size: 1.6rem; }
+}
